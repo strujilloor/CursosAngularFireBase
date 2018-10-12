@@ -1,0 +1,84 @@
+<div>
+  <ul *ngFor="let curso of cursos" class="collection">
+    <li class="collection-item">
+      <a href="#" class="secondary-content">
+        <i *ngIf="editState == false" (click)="editCurso($event, curso)" class="material-icons">mode_edit</i>
+        <i *ngIf="editState && cursoToEdit.id == curso.id" (click)="clearState()" class="material-icons">close</i>
+      </a>
+      <h4><b>{{curso.nombre}}</b></h4>
+      <br>
+      <blockquote>{{curso.descripcion}}</blockquote>
+      <br>
+      <span class="my_tag amber">
+        <b>Precio:</b>
+        {{curso.precio}}
+      </span>
+      <span class="my_tag amber">
+        <b>Idioma:</b>
+        {{curso.idioma}}
+      </span>
+      <span class="my_tag amber">
+        <b>Formador:</b>
+        {{curso.formador}}
+      </span>
+      <span class="my_tag amber">
+        <b>Tecnologia:</b>
+        {{curso.tecnologia}}
+      </span>
+      <hr>
+      <div *ngIf="editState && cursoToEdit.id == curso.id" class="container-updateCurso">
+        <!--TODO: form-->
+
+        <form (ngSubmit)="onUpdateCurso(curso)" class="col s6">
+          <div class="row">
+            <div class="input-field col s6">
+              <input [(ngModel)]="curso.nombre" #nombre="ngModel" type="text" name="nombre" id="nombre" placeholder="Nombre curso">
+              <label>Nombre</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input [(ngModel)]="curso.descripcion" #nombre="ngModel" type="text" name="descripcion" id="descripcion" placeholder="Descripcion curso">
+              <label>Descripción</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input [(ngModel)]="curso.formador" #nombre="ngModel" type="text" name="formador" id="formador" placeholder="formador curso">
+              <label>Formador</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input [(ngModel)]="curso.precio" #nombre="ngModel" type="text" name="precio" id="precio" placeholder="precio curso">
+              <label>Precio</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input [(ngModel)]="curso.idioma" #nombre="ngModel" type="text" name="idioma" id="idioma" placeholder="Idioma curso">
+              <label>Idioma</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input [(ngModel)]="curso.tecnologia" #nombre="ngModel" type="text" name="tecnologia" id="tecnologia" placeholder="Tecnologia curso">
+              <label>Tecnologia</label>
+            </div>
+            <button (click)="deleteCurso($event, curso)" class="btn red right">Borrar
+            <i class="material-icons right">delete_forever</i></button>
+            <button type="submit" class="btn orange">Actualizar
+              <i class="material-icons right">save</i></button>
+          </div>
+
+        </form>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noCursos >
+  <hr>
+  <h5>NO EXISTEN CURSOS</h5>
+</ng-template>

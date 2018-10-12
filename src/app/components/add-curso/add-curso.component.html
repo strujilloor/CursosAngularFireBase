@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Nuevo Curso</span>
+    <form (ngSubmit)="onGuardarCurso(formNew)" #formNew="ngForm" class="col s6">
+      <div class="row">
+        <div class="input-field col s6">
+          <input [(ngModel)]="curso.nombre" #nombre="ngModel" type="text" name="nombre" id="nombre" placeholder="Nombre curso">
+          <label>Nombre</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input [(ngModel)]="curso.descripcion" #nombre="ngModel" type="text" name="descripcion" id="descripcion" placeholder="Descripcion curso">
+          <label>Descripción</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input [(ngModel)]="curso.formador" #nombre="ngModel" type="text" name="formador" id="formador" placeholder="formador curso">
+          <label>Formador</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input [(ngModel)]="curso.precio" #nombre="ngModel" type="text" name="precio" id="precio" placeholder="precio curso">
+          <label>Precio</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input [(ngModel)]="curso.idioma" #nombre="ngModel" type="text" name="idioma" id="idioma" placeholder="Idioma curso">
+          <label>Idioma</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input [(ngModel)]="curso.tecnologia" #nombre="ngModel" type="text" name="tecnologia" id="tecnologia" placeholder="Tecnologia curso">
+          <label>Tecnologia</label>
+        </div>
+        <button type="submit" class="btn waves-effect waves-light organge right">Guardar
+          <i class="material-icons">add_circle</i>
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
